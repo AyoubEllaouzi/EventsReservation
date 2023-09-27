@@ -1,0 +1,118 @@
+{% load static %}
+
+<head>    
+        <meta charset="UTF-8">
+        <title>{% block title%} AdminPanel {% endblock title%}</title>
+        <link rel="stylesheet" href="{% static 'css/styledash.css' %}">
+        <link rel="stylesheet" href="{% static 'vendors/mdi/css/materialdesignicons.min.css' %}">
+        <link rel="stylesheet" href="{% static 'vendors/feather/feather.css' %}">
+        <link rel="stylesheet" href="{% static 'vendors/base/vendor.bundle.base.css' %}">
+        <link rel="stylesheet" href="{%  static 'vendors/flag-icon-css/css/flag-icon.min.css' %}"/>
+        <link rel="stylesheet" href="{%  static 'vendors/font-awesome/css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{%  static 'vendors/jquery-bar-rating/fontawesome-stars-o.css' %}">
+        <link rel="stylesheet" href="{%  static 'vendors/jquery-bar-rating/fontawesome-stars.css' %}">
+
+        
+</head>
+<body>
+
+  <div class="container-scroller"> 
+    <!-- partial:partials/_navbar.php -->
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end"> 
+            <button class="btn btn-sm btn-danger"><a style="color: black;" href="{% url 'logout' %}" >Déconnexion</a></button>
+      </div>
+    </nav>
+  
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.php -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar" style="position: fixed;">
+        <div class="user-profile">
+          <div class="user-image">
+            {% block img %}<img src="{% static '\img\testimonial-3.jpg' %}">{% endblock img %}
+          </div>
+          <div class="user-name" style="width: 100%;">
+           {% block name%} ABDELAZIZ  {% endblock name %}
+          </div>
+        </div>
+        <ul class="nav">
+          <li class="nav-item">
+            {% block event %} <a class="nav-link"  href="{% url 'events_a' %}" >  {% endblock event %}
+            <span class="menu-title">EVENTS</span>
+            
+            </a>
+          </li>
+        {% block cli %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'clients' %}">
+              <span class="menu-title">Clients</span>
+            </a>
+          </li>
+        {% endblock cli %}
+          <li class="nav-item">
+            {% block statistique %} <a class="nav-link" href="{% url 'home_stati' %}"> {% endblock statistique %}
+              <span class="menu-title">Statistics</span>
+            </a>
+          </li>
+
+        {% block setting %}
+          <li class="nav-item">
+            <a class="nav-link" href="">
+                <span class="menu-title"></span>
+            </a>
+          </li>
+          {% endblock setting %}
+
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper" >
+          <div class="row" >
+          </div>
+          <div class="row mt-3" >
+                {%block content %}
+
+                {%endblock content%}
+          </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer-->
+        <footer class="footer" style="position: fixed; bottom: 0;left: 17%;width: 100%;">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © Groupe SID-BD 2023</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> By <a href="#" target="">Gourpe SID-BD</a> </span>
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+ <!-- base:js -->
+ <script src="{%  static 'vendors/base/vendor.bundle.base.js' %}"></script>
+ <!-- endinject -->
+ <!-- Plugin js for this page-->
+ <!-- End plugin js for this page-->
+ <!-- inject:js -->
+ <script src="{%  static 'jss/off-canvas.js' %}"></script>
+ <script src="{%  static 'jss/hoverable-collapse.js' %}"></script>
+ <script src="{%  static 'jss/template.js' %}"></script>
+ <!-- endinject -->
+ <!-- plugin js for this page -->
+ <script src="{%  static 'vendors/chart.js/Chart.min.js' %}"></script>
+ <script src="{%  static 'vendors/jquery-bar-rating/jquery.barrating.min.js' %}"></script>
+ <!-- End plugin js for this page -->
+ <!-- Custom js for this page-->
+ <script src="{%  static 'jss/dashboard.js' %}"></script>
+ <!-- End custom js for this page-->
+ 
+</body>
+</html>
+

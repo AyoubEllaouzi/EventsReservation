@@ -1,0 +1,43 @@
+
+<form method="POST" action="{% url 'panel' %}">
+    {% csrf_token %}
+    <div class="container-fluid booking pb-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="bg-white shadow" style="padding: 35px;">
+                <div class="row g-2">
+                    <div class="col-md-10">
+                        <div class="row g-2">
+                            <div class="col-md-3">
+                                <select name="event_name" class="form-select">
+                                    <option value="{{ event.id }}">{{ event.name }}</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <select name="user_email" class="form-select">
+                                    <option value="{{ user }}">{{ user.email }}</option>
+                                </select>
+                            </div>
+
+                            <!-- number of ticket exist-->
+                            <div class="col-md-3">
+                                <select name="" class="form-select">
+                                    <option>Ticket Max : {{ event.nbr_ticket_max }}</option>
+                                </select>
+                            </div>
+                            <!-- number of ticket -->
+                            <div class="col-md-3">
+                                <div class="date" id="date2" data-target-input="nearest">
+                                    <input name="ticket_number" type="text" class="form-control datetimepicker-input" placeholder="Ticket number" data-target="#date2" data-toggle="datetimepicker"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+
+                        <button type="submit" class="btn btn-primary w-100" >Payment</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

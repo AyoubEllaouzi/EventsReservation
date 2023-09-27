@@ -1,0 +1,61 @@
+{% extends 'Organiseurs/home.html' %}
+{% block img %}<img src="{{ obj.picture.url }}">{% endblock img %}
+{% block name%} {{obj.name}}{% endblock name %}
+{% block content %}
+
+<div class="col-lg-6 grid-margin stretch-card">  
+  <div class="card" style="left: 20%; background-color: rgb(248, 250, 246);">
+       <div>
+        <h2 >EVENTS INFORMATIONS</h2>
+        <button style="margin-left: 90%;" class="btn btn-success"> <a style="color: black;" href="{% url 'add_event' %}">Add Event</a></button>
+      </div> 
+      <br>
+      <div class="table-responsive" >
+        <table class="table table-bordered" >
+          <table class="table table-bordered table-dark">
+              <thead>
+                <tr style="background-color: cornflowerblue;">
+                 <th scope="col" >Name</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Lieu</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">View</th>
+                  <th scope="col">Update</th>
+                  <th scope="col">Remove</th>
+                </tr>
+              </thead>
+            </div>
+          </div>
+        </div>
+      </div>              
+</div>
+</div>
+
+<tbody class="table-group-divider">
+  
+    {% for event in events %}
+        {% if event.id_organ == id_org %}
+          <tr>
+            <td>{{ event.name }}</td>
+            <td>{{ event.date }}</td>
+            <td>{{ event.lieu }}</td>
+            <td>{{ event.price }}</td>
+            <td>{{ event.description |truncatechars:30}}</td>
+             {% if event.is_Vaide %}
+                  <td>Valide</td>
+             {% else %}
+                  <td>Pending</td>
+             {% endif %}
+               <td><a class="btn btn-sm btn-info" href="{% url 'view_o_e' event.id %}">View</a> </td>
+               <td><a class="btn btn-sm btn-info" href="{% url 'update_event' event.id %}">Update</a> </td>
+               <td><a class="btn btn-sm btn-danger" href="{% url 'delete_event' event.id %}">Delete</a> </td>
+            </tr>
+        {% endif %}
+    {% endfor %}
+  </tbody>
+
+  <tbody class="table-group-divider">
+</table>
+{% endblock content %}

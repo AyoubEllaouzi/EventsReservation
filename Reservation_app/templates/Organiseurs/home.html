@@ -1,0 +1,25 @@
+{% extends 'Admin/home.html' %}
+{% load static %}
+{% block title%} Organisateur dashboard {% endblock title%}
+{% block img %}<img src="{{ obj.picture.url }}">{% endblock img %}
+{% block name%} {{obj.name}}{% endblock name %}
+
+{% block event %} <a class="nav-link"  href="{% url 'events_o'  %}" >{% endblock event %}
+{% block cli %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'clients_reservation' %}">
+            <span class="menu-title">Reservations</span>
+        </a>
+    </li>
+{% endblock cli %}
+{% block statistique %}   <a class="nav-link"  href="{% url 'statistique_org'  %}" >{% endblock statistique %}
+{% block setting %}
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'setting_organisuer'   %}">
+          <span class="menu-title">Setting</span>
+      </a>
+    </li>
+{% endblock setting %}
+{% block content %}
+
+{% endblock content %}

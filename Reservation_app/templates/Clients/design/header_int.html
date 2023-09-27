@@ -1,0 +1,67 @@
+       <style>
+
+.notification {
+  background-color: #555;
+  color: white;
+  text-decoration: none;
+    margin-right: 5%;
+  padding: 7px 7px;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.notification:hover {
+  background: red;
+}
+
+.notification .badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+}       </style>
+
+
+        <div class="container-fluid bg-dark px-0">
+            <div class="row gx-0">
+                <div class="col-lg-3 bg-dark d-none d-lg-block">
+                    <a href="../index.html" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                        <h1 class="m-0 text-primary text-uppercase">E-Ticket</h1>
+                    </a>
+                </div>
+                <div class="col-lg-9">
+
+                    <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
+                        <a href="../index.html" class="navbar-brand d-block d-lg-none">
+                            <h1 class="m-0 text-primary text-uppercase">E-Ticket</h1>
+                        </a>
+                        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                            <div class="navbar-nav mr-auto py-0">
+                                <a href="{% url 'home_client' %}" class="nav-item nav-link active">Home</a>
+                                <a href="{% url 'fistivals' %}" class="nav-item nav-link">FESTIVALS</a>
+                                <a href="{% url 'spectacles' %}" class="nav-item nav-link">SPECTACLES</a>
+                                <a href="{% url 'sports' %}" class="nav-item nav-link">SPORTS</a>
+                                <a href="{% url 'conférences' %}" class="nav-item nav-link">CONFERENCES</a>
+                            </div>
+                            <div style="margin-left: 20%">
+                                <a href="{% url 'notifications' %}" class="notification">
+                                <span>Notifications</span>
+                                <span class="badge">{{ notif }}</span>
+                                </a>
+                            </div>
+                            <div>
+                            <a href="{% url 'logout' %}" class="nav-item nav-link">Log out</a>
+                            </div>
+
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>

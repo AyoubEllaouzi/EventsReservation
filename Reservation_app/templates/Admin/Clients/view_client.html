@@ -1,0 +1,26 @@
+{% extends 'Admin/home.html' %}
+{% load static %}
+{% block content %}
+<div class="card" style="width: 38rem; align-self: center ;left: 20%; background-color: rgb(248, 250, 246);">
+      <div class="card-body">
+        <div class="box">
+          <h3>Name:  {{ client.name }}</h3>
+        </div>
+        <div  class="box">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h4>UserName : {{ client.user }} </h4></li>
+            <li class="list-group-item"><h4>E-mail : {{ client.email }} </h4></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <style> 
+      .box {
+        border: 1px solid;
+        padding: 10px;
+        box-shadow: 5px 10px #970df3;
+      }
+    </style>
+{% endblock content %}

@@ -1,0 +1,149 @@
+{% extends 'Admin/home.html'%}
+
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.3.0/chart.umd.min.js" integrity="sha512-TJ7U6JRJx5IpyvvO9atNnBzwJIoZDaQnQhb0Wmw32Rj5BQHAmJG16WzaJbDns2Wk5VG6gMt4MytZApZG47rCdg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+<div class="col-lg-6 grid-margin stretch-card" style="align-content: center;">
+
+    <div class="card" style="left:20%; align-content: center; background-color: rgb(248, 250, 246);">
+      <div class="card-body" >
+        <ol  class="breadcrumb">
+            <li  style="margin-left: 22%;" class="breadcrumb-item active"><h3 style="color: black; ">Le prix Total Pour chaque Catégorie</h3></li>
+        </ol>
+                <div style="align-content: center;" >
+                    <div class="col-lg-6" style="margin-left:20%;">
+                        <canvas id="myChart1" width="50" height="50" ></canvas>
+                    </div style="align-content: center;">
+                        <script type="text/javascript" >
+                            var ctx = document.getElementById('myChart1').getContext('2d');
+                            var myChart1 = new Chart(ctx, {
+                            type: 'pie',
+                            data: {
+                                    labels: [{% for gender in gender_list %} '{{ gender }}', {% endfor %}],
+                                    datasets: [{
+                                    label:'Reservations',
+                                    data: [{% for number in gender_number %} '{{ number }}', {% endfor %}],
+                                    backgroundColor:[
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 135, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(151, 102, 132, 1)',
+                                    'rgba(153, 99, 132, 1)',
+                                    'rgba(255, 159, 64, 1)',
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 135, 1)',
+                                    'rgba(25, 206, 86, 1)',
+                                    'rgba(211, 192, 192, 1)',
+                                    'rgba(234, 102, 132, 1)',
+                                    'rgba(153, 99, 132, 1)',
+                                    'rgba(255, 159, 64, 1)',
+                                    'gree',
+                                    'yellow',
+                                    ],
+        
+                                    borderColor: [
+                                    'rgba(54, 162, 135, 1)',
+                                    'rgba(25, 206, 86, 1)',
+                                    'rgba(211, 192, 192, 1)',
+                                    'rgba(234, 102, 132, 1)',
+                                    'rgba(153, 99, 132, 1)',
+                                    'rgba(255, 159, 64, 1)',
+        
+                                    ],
+        
+                                    borderWidth:1
+                                  }]
+                                  },
+        
+                                options: {
+                                    scales: {
+                                        yAxes: [{
+                                            ticks: {
+                                                beginAtZero: true
+                                            }
+                                        }]
+                                    }
+                                }
+                            })
+                        </script>
+                        
+                
+                </div>
+                <hr style="color: black; border: double;">
+                <ol  class="breadcrumb">
+                    <li  style="margin-left: 22%;" class="breadcrumb-item active"><h3 style="color: black; ">Le Nombre Total pour chaque Catégorie</h3></li>
+                </ol>
+                <div class="col-lg-6" style="margin-left:20%;">
+                    <canvas id="myChart" width="50" height="50"></canvas>
+                </div>
+              </div>
+              <div style="align-content: center;">
+                    <script type="text/javascript">
+                        var ctx = document.getElementById('myChart').getContext('2d');
+                        var myChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: [{% for course in course_list %} '{{ course }}', {% endfor %}],
+                                datasets: [{
+                                    label:'Events',
+                                    data: [{% for number in number_list %} '{{ number }}', {% endfor %}],
+                                    backgroundColor:[
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 135, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(151, 102, 132, 1)',
+                                    'rgba(153, 99, 132, 1)',
+                                    'rgba(255, 159, 64, 1)',
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 135, 1)',
+                                    'rgba(25, 206, 86, 1)',
+                                    'rgba(211, 192, 192, 1)',
+                                    'rgba(234, 102, 132, 1)',
+                                    'rgba(153, 99, 132, 1)',
+                                    'rgba(255, 159, 64, 1)',
+                                    'gree',
+                                    'yellow',
+                                    ],
+        
+                                    borderColor: [
+                                    'rgba(54, 162, 135, 1)',
+                                    'rgba(25, 206, 86, 1)',
+                                    'rgba(211, 192, 192, 1)',
+                                    'rgba(234, 102, 132, 1)',
+                                    'rgba(153, 99, 132, 1)',
+                                    'rgba(255, 159, 64, 1)',
+        
+                                    ],
+        
+                                    borderWidth: 1
+                                }]
+                            },
+        
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
+                                }
+                            }
+                        })
+                    </script>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--
+
+    
+-->
+
+{% endblock content %}

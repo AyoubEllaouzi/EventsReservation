@@ -1,0 +1,62 @@
+{% extends 'Admin/home.html' %}
+
+{% block content%}
+
+
+<div class="col-lg-6 grid-margin stretch-card">
+    <div class="card" style="left: 20%;">
+      <div class="card-body" style=" background-color: rgb(248, 250, 246);">
+        <h2 style="color:black; font-family: Arial, Helvetica, sans-serif;">Events Informations</h2>  
+        {% include 'Admin/search_ev.html'%}
+        <div class="table-responsive" >
+          <table class="table table-bordered" >
+            <table class="table table-bordered table-dark">
+                <thead>
+                  <tr style="background-color: cornflowerblue;">
+                   <th scope="col" >Name</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Lieu</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Valider</th>
+                    <th scope="col">View</th>
+                    <th scope="col">Update</th>
+                    <th scope="col">Remove</th>
+                  </tr>
+                </thead>
+  
+  
+              </div>
+            </div>
+          </div>
+        </div>              
+  </div>
+  </div>
+  {% if results is None %}
+  <h1>Doesn't Exist</h1>
+  {% endif %}
+    <tbody class="table-group-divider">
+       
+       {% for event in results %}
+      <tr>
+          <td>{{ event.name }}</td>
+        <td>{{ event.date }}</td>
+        <td>{{ event.lieu }}</td>
+        <td>{{ event.price }}</td>
+        <td>{{ event.description |truncatechars:30}}</td>
+         {% if event.is_Vaide %}
+              <td>Valide</td>
+         {% else %}
+              <td>Pending</td>
+         {% endif %}
+        <td><a class="btn btn-sm btn-info" href="{% url 'validation' event.id %}">Valider</a> </td>
+        <td><a class="btn btn-sm btn-info" href="{% url 'view_a_e' event.id %}">View</a> </td>
+        <td><a class="btn btn-sm btn-info" href="{% url 'update_event_a' event.id %}">Update</a> </td>
+        <td><a class="btn btn-sm btn-danger" href="{% url 'delete_event_a' event.id %}" >Delete</a> </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock content%}

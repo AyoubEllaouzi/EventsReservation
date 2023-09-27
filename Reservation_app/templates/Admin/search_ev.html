@@ -1,0 +1,10 @@
+<div style="display: flex; margin-left: 70%; background-color: rgb(248, 250, 246);">
+<form class="d-flex" role="search"  method="GET"  action="{% url 'search_events_a' %}">
+    {% csrf_token %}
+        <input  style="width: 100%;" class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
+        <li style="background-color: rgb(248, 250, 246);display: flexbox;" ></li>
+        <button style="width: 60%; background-color: green;" class="btn btn-outline-success" type="submit">Search</button>
+</form>
+</div>
+
+

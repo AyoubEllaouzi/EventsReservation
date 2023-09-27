@@ -1,0 +1,21 @@
+{% extends 'Admin/home.html' %}
+
+{% block content %}
+<dialog open="" style="text-align: center; align-content: center; left: 22%;"> 
+    <div class="card w-75" style="background-color:rgb(250, 249, 249);align-content: center;left: 13%;background-color: rgb(248, 250, 246);">
+        <form method="POST" action="">
+            {% csrf_token %}
+
+    <form method="POST" action="">
+    {% csrf_token %}
+    <div class="card-body">
+        <h5 class="card-title">Delete</h5>
+        <p class="card-text" >Vous avez sûr  que vous voulez supprimer ?</p>
+        <input class="btn btn-primary" type="submit" name="Confirm" style="float: right;">
+        <a href="{% url 'clients' %}" style="float: left;" class="btn btn-primary">cancel</a>
+      </div>
+
+  </form>
+</div>
+</dialog> 
+{% endblock content %}

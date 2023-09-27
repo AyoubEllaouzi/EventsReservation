@@ -1,0 +1,43 @@
+{% extends 'Admin/home.html' %}
+
+{% block content %}
+<div class="col-lg-6 grid-margin stretch-card">
+  <div class="card" style="left: 20%;">
+    <div class="card-body" style=" background-color: rgb(248, 250, 246);">
+      <h2 style="color:black; font-family: Arial, Helvetica, sans-serif;">Clients informations</h2>
+      <br>
+      <div class="table-responsive" >
+        <table class="table table-bordered" >
+          <table class="table table-bordered table-dark">
+              <thead>
+                    <tr style="background-color: cornflowerblue;">
+                      <th scope="col">Username</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">View</th>
+                      <th scope="col">Update</th>
+                      <th scope="col">Remove</th>
+                    </tr>
+                  </thead>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>              
+      </div>
+      </div>
+    <tbody class="table-group-divider">
+      {% for client in clients %}
+      <tr>
+        <td>{{ client.user }}</td>
+        <td>{{ client.name }}</td>
+        <td>{{ client.email }}</td>
+        <td><a class="btn btn-sm btn-info" href="{% url 'view_a_c' client.id %}">View</a> </td>
+        <td><a class="btn btn-sm btn-info"  href="{% url 'update_client' client.id %}">Update</a> </td>
+        <td><a class="btn btn-sm btn-danger"  href="{% url 'delete_client' client.id %}">Delete</a> </td>
+      </tr>
+        {% endfor %}
+      </tbody>
+</table>
+{% endblock content %}

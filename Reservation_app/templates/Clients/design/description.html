@@ -1,0 +1,111 @@
+{% load static %}
+<div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6">
+                        <h6 class="section-title text-start text-primary text-uppercase">Description</h6>
+                        <h1 class="mb-4">Welcome to <span class="text-primary text-uppercase">MyTicket</span></h1>
+                        <p class="mb-4">Description : {{ event.description }}</p>
+                        <p class="mb-4">name evénement: {{ event.name }}</p>
+                        <p class="mb-4">lieu : {{ event.lieu }}</p>
+                        <p class="mb-4">date : {{ event.date }}</p>
+                        <p class="mb-4">User Name   : {{ user }}</p>
+                        <p class="mb-4">Nombre de Tickts résserver : {{ nbr }}</p>
+
+                        <div class="row g-3 pb-4">
+                            <div class="col-sm-4 wow fadeIn" data-wow-delay="0.1s">
+                                <div class="border rounded p-1">
+                                    <div class="border rounded text-center p-4">
+                                        <i class="fa fa-hotel fa-2x text-primary mb-2"></i>
+                                        <h2 class="mb-1" data-toggle="counter-up">{{ montant }} DH</h2>
+                                        <p class="mb-0">Amount</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 wow fadeIn" data-wow-delay="0.3s">
+                                <div class="border rounded p-1">
+                                    <div class="border rounded text-center p-4">
+                                        <i class="fa fa-users-cog fa-2x text-primary mb-2"></i>
+                                        <h2 class="mb-1" data-toggle="counter-up">{{ event.price }} DH</h2>
+                                        <p class="mb-0">Price</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 wow fadeIn" data-wow-delay="0.5s">
+                                <div class="border rounded p-1">
+                                    <div class="border rounded text-center p-4">
+                                        <i class="fa fa-users fa-2x text-primary mb-2"></i>
+                                        <h2 class="mb-1" data-toggle="counter-up">{{ event.nbr_ticket_max }}</h2>
+                                        <p class="mb-0">Tecket</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                            <div class="col-6 text-end"  style="margin-top: -12%;max-width: 600%;max-height: 600%">
+                                <img   class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src="{{ event.picture.url }}" >
+                            </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <br>
+        <br>
+        <br>
+        <br>
+<!-- khls am3lm-------------------------------------------------------------------------------------->
+<form method="POST" action="{% url 'carde_autentification' reservation.id %}">
+    {% csrf_token %}
+    <div class="container-fluid booking pb-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="bg-white shadow" style="padding: 35px;">
+                <div class="row g-2">
+                    <div class="col-md-10">
+                        <div class="row g-2">
+                            <div class="col-md-3">
+                                <div class="date" id="date2" data-target-input="nearest">
+                                    <input name="full_name" type="text" class="form-control datetimepicker-input" placeholder="Full Name" data-target="#date2" data-toggle="datetimepicker"/>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="date" id="date2" data-target-input="nearest">
+                                    <input name="card_number" type="text" class="form-control datetimepicker-input" placeholder="Card number" data-target="#date2" data-toggle="datetimepicker"/>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="date" id="date2" data-target-input="nearest">
+                                    <input name="card_exp" type="text" class="form-control datetimepicker-input" placeholder="Exp. date" data-target="#date2" data-toggle="datetimepicker"/>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="date" id="date2" data-target-input="nearest">
+                                    <input name="card_cvv" type="text" class="form-control datetimepicker-input" placeholder="CVV" data-target="#date2" data-toggle="datetimepicker"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+
+                        <button type="submit" class="btn btn-primary w-100">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>

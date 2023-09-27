@@ -1,0 +1,51 @@
+{% extends 'Organiseurs/home.html' %}
+{% block img %}<img src="{{ obj.picture.url }}">{% endblock img %}
+{% block name%} {{obj.name}}{% endblock name %}
+{% block content %}
+
+<div class="col-lg-6 grid-margin stretch-card">  
+  <div class="card" style="left: 20%; background-color: rgb(248, 250, 246);">
+       <div>
+        <h2 >Reservations</h2>
+      </div>
+      <br>
+      <div class="table-responsive" >
+        <table class="table table-bordered" >
+          <table class="table table-bordered table-dark">
+              <thead>
+                <tr style="background-color: cornflowerblue;">
+                 <th scope="col" >User name</th>
+                 <th scope="col" >Event name</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Lieu</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">Montant</th>
+
+                </tr>
+              </thead>
+            </div>
+          </div>
+        </div>
+      </div>              
+</div>
+</div>
+
+<tbody class="table-group-divider">
+  
+    {% for info in debug_info %}
+
+          <tr>
+            <td>{{ info.user_email}}</td>
+            <td>{{ info.event_name }}</td>
+            <td>{{ info.event_date }}</td>
+            <td>{{ info.event_lieu }}</td>
+            <td>{{ info.reservation_type}}</td>
+            <td>{{ info.montant }} Dh</td>
+            </tr>
+
+    {% endfor %}
+  </tbody>
+
+  <tbody class="table-group-divider">
+</table>
+{% endblock content %}

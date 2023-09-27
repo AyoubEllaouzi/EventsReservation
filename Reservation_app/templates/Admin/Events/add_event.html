@@ -1,0 +1,20 @@
+{% extends 'Admin/home.html' %}
+
+{% block content %}
+<div class="card w-75" style="background-color:rgb(250, 249, 249);align-content: center;left: 13%; margin-left: 4%;">
+ 
+    <form method="POST" action="">
+    {% csrf_token %}
+    <div class="card-body">
+        {{ form.as_p }}
+        
+            <input type="submit" name="Submit">
+      </div>
+    
+    </form>
+    </div>
+{% endblock content %}
+
+
+
+
